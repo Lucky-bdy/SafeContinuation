@@ -10,6 +10,12 @@
 **SafeContinuation** is a lightweight Swift utility that wraps `withCheckedContinuation` with built-in **timeout support**.  
 It is ideal for bridging callback-based APIs (e.g., CoreBluetooth, delegate methods) into Swift's `async/await` world.
 
+Swift's native `withCheckedContinuation` is powerful but unsafe if misused:
+- Resuming more than once leads to undefined behavior
+- Forgetting to resume causes tasks to hang indefinitely
+
+`SafeContinuation` wraps this API with thread safety and timeout protection — ensuring safety without complexity.
+
 ---
 
 ## 🚀 Features
@@ -40,6 +46,14 @@ let result = try await SafeContinuation.withTimeout(seconds: 3) { continuation i
         continuation.resume(returning: data)
     }
 }
+
+do {
+    let result = try await SafeContinuation.withTimeout(seconds: 2) { continuation in
+        // simulate no callback
+    }
+} catch SafeContinuationError.timeout {
+    print("Timeout occurred!")
+}
 ```
 > If resume is not called within 3 seconds, .timeout error will be thrown.
 
@@ -58,7 +72,7 @@ let result = try await SafeContinuation.withTimeout(seconds: 3) { continuation i
 
 **Lucky**  
 📧 921969987@qq.com  
-🔗 [https://github.com/Lucky](https://github.com/Lucky)
+🔗 [https://github.com/JunkyTang](https://github.com/JunkyTang)
 
 ---
 
