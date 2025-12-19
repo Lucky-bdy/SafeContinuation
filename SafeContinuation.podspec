@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SafeContinuation'
-  s.version          = '0.1.3'
+  s.version          = '0.1.4'
   s.summary          = 'SafeContinuation provides async timeout-safe continuation support in Swift.'
 
   s.description      = <<-DESC
@@ -17,10 +17,10 @@ safe resuming and built-in timeout handling. It is designed for concurrency-safe
 especially for bridging async callbacks (e.g. Bluetooth, networking) with Swift's async/await model.
   DESC
 
-  s.homepage         = 'https://github.com/JunkyTang/SafeContinuation'
+  s.homepage         = 'https://github.com/Lucky-bdy/SafeContinuation'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Lucky' => '921969987@qq.com' }
-  s.source           = { :git => 'https://github.com/JunkyTang/SafeContinuation.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/Lucky-bdy/SafeContinuation.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '13.0'
 
